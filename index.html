@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #fff;
+            transition: background-color 0.2s;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            width: 150px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Background Color Changer</h1>
+        <p>Enter a color name</p>
+        <input 
+            type="text" 
+            id="colorInput" 
+            placeholder="ex. blue"
+        >
+        <button id="changeBtn">Change Background</button>
+    </div>
+
+    <script>
+        const colorInput = document.getElementById('colorInput');
+        const changeBtn = document.getElementById('changeBtn');
+
+        changeBtn.addEventListener('click', function()
+        {
+            const colorValue = colorInput.value.trim();
+            if (colorValue)
+            {
+                document.body.style.backgroundColor = colorValue;
+                colorInput.value = '';
+            }
+        });
+
+        colorInput.addEventListener('change', function()
+        {
+            const colorValue = this.value.trim();
+            if (colorValue)
+            {
+                document.body.style.backgroundColor = colorValue;
+            }
+        });
+    </script>
+</body>
+</html>
